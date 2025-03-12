@@ -32,7 +32,7 @@ public class CustomerDB implements CustomerDBIF {
 			}
 			return c;
 		} catch (SQLException e) {
-			throw new DataAccessException(e, "Could not find by id = " + phone);
+			throw new DataAccessException(e, "Could not find by phone = " + phone);
 		}
 	}
 	
