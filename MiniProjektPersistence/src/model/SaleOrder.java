@@ -7,14 +7,14 @@ public class SaleOrder {
 	
 	private Date date;
 	private double total;
-	private boolean delivered;
+	private String deliveryStatus;
 	private Date deliveryDate;
-	private String orderId;
+	private int orderId;
 	private ArrayList<OrderLine> orderLines;
 	
-	public SaleOrder(Date date, boolean delivered, Date deliveryDate, String orderId) {
+	public SaleOrder(Date date, String deliveryStatus, Date deliveryDate, int orderId) {
 		this.date = date;
-		this.delivered = delivered;
+		this.deliveryStatus = deliveryStatus;
 		this.deliveryDate = deliveryDate;
 		this.orderId = orderId;
 		orderLines = new ArrayList<OrderLine>();
@@ -22,31 +22,30 @@ public class SaleOrder {
 	public Date getDate() {
 		return date;
 	}
-	public boolean isDelivered() {
-		return delivered;
+	public String getDeliveryStatus() {
+		return deliveryStatus;
 	}
 	public Date getDeliveryDate() {
 		return deliveryDate;
 	}
-	public String getOrderId() {
+	public int getOrderId() {
 		return orderId;
 	}
 	public ArrayList<OrderLine> getOrderLines() {
 		return orderLines;
 	}
+	
+	public double getTotal() {
+		return total;
+	}
+	
 	public void setDate(Date date) {
 		this.date = date;
-	}
-	public void setTotal(double total) {
-		this.total = total;
-	}
-	public void setDelivered(boolean delivered) {
-		this.delivered = delivered;
 	}
 	public void setDeliveryDate(Date deliveryDate) {
 		this.deliveryDate = deliveryDate;
 	}
-	public void setOrderId(String orderId) {
+	public void setOrderId(int orderId) {
 		this.orderId = orderId;
 	}
 	

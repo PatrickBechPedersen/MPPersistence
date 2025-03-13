@@ -2,14 +2,14 @@ package model;
 
 public class Product {
 	
-	private String productId;
+	private int productId;
 	private String productName;
 	private double salesPrice;
 	private double rentPrice;
 	private String countryOfOrigin;
 	private int minStock;
 	
-	public Product(String productId, String productName, double salesPrice, double rentPrice, String countryOfOrigin,
+	public Product(int productId, String productName, double salesPrice, double rentPrice, String countryOfOrigin,
 			int minStock) {
 		super();
 		this.productId = productId;
@@ -20,7 +20,7 @@ public class Product {
 		this.minStock = minStock;
 	}
 
-	public String getProductId() {
+	public int getProductId() {
 		return productId;
 	}
 
@@ -44,7 +44,7 @@ public class Product {
 		return minStock;
 	}
 
-	public void setProductId(String productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 

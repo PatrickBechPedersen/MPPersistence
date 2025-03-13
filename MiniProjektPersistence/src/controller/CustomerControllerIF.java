@@ -1,7 +1,10 @@
 package controller;
 
+import db.DataAccessException;
+import model.Customer;
+
 public interface CustomerControllerIF {
 
-	void addCustomer();
+	Customer getCustomer(String phone) throws DataAccessException;
 	
 }
