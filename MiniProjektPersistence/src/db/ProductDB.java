@@ -6,9 +6,10 @@ import java.sql.SQLException;
 
 import model.Customer;
 import model.Product;
+//Database for Product
 
 public class ProductDB implements ProductDBIF {
-	
+	//Det samme som i de to andre
 	private static final String findByIdQ = "select * from product where id = ?";
 	private PreparedStatement findById;
 	
@@ -21,7 +22,7 @@ public class ProductDB implements ProductDBIF {
 		}
 	}
 	
-	
+	//Metode til at finde et product med Id
 	@Override
 	public Product findProductById(String productId) throws DataAccessException {
 		try {
@@ -36,7 +37,7 @@ public class ProductDB implements ProductDBIF {
 			throw new DataAccessException(e, "Could not find by id = " + productId);
 		}
 	}
-	
+	//Laver resten af produktet
 	private Product buildObject(ResultSet rs) throws SQLException {
 		Product p = new Product(
 				rs.getInt("productId"),

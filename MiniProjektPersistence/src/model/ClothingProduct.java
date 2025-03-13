@@ -1,5 +1,7 @@
 package model;
 
+
+//Setters, getters og en constructor for ClothingProduct som er en underklasse for Product
 public class ClothingProduct extends Product {
 
 	private String size;

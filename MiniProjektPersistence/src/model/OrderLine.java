@@ -1,5 +1,8 @@
 package model;
 
+//Setters, getters og en constructor for OrderLine
+
+
 public class OrderLine {
 	
 	private int quantity;

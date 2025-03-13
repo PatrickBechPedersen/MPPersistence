@@ -1,5 +1,8 @@
 package model;
 
+//Setters, getters og en constructor for Customer
+
+
 public class Customer {
 	
 	private String address;

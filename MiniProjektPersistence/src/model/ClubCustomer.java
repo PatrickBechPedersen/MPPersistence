@@ -1,5 +1,7 @@
 package model;
 
+
+//Setters, getters og en constructor for ClubCustomer som er en underklasse for Customer
 public class ClubCustomer extends Customer {
 
 	private String clubName;

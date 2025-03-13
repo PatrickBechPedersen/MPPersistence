@@ -4,6 +4,7 @@ import db.DataAccessException;
 import db.ProductDB;
 import model.Product;
 
+//Controller klasse for Product kører metoderne fra ProductDB
 public class ProductController implements ProductControllerIF {
 	
 	ProductDB productDB;

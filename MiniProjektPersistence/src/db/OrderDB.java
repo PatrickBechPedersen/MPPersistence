@@ -10,14 +10,15 @@ import model.Customer;
 import model.OrderLine;
 import model.Product;
 import model.SaleOrder;
+//Database for Order
 
 public class OrderDB implements OrderDBIF {
-	
+	//Prepared statement for at lave en ordre og tilføje produkter 
 	private static final String confirmOrderQ = "insert into SaleOrder subtotal, deliveryStatus, deliveryDate";
 	private PreparedStatement confirmOrder;
 	private static final String addProductQ = "insert into orderLineSaleOrder productId, orderId";
 	private PreparedStatement addProduct;
-	
+	//Metode der implementerer de prepared statementts
 	public OrderDB() throws DataAccessException{
 		try {
 		confirmOrder = DBConnection.getInstance().getConnection().prepareStatement(confirmOrderQ);
@@ -27,7 +28,7 @@ public class OrderDB implements OrderDBIF {
 			throw new DataAccessException(e, "Could not prepared statements");
 		}
 	}
-
+	//Metode til at lave en ordre 
 	@Override
 	public void confirmOrder(SaleOrder order) throws DataAccessException {
 		addProducts(order);
@@ -45,7 +46,7 @@ public class OrderDB implements OrderDBIF {
 			
 		}
 	}
-	
+	//Metode der tilføjer produkter til en OrderLine
 	private void addProducts(SaleOrder order) throws DataAccessException {
 		try {
 		ArrayList<OrderLine>orderLines = order.getOrderLines();

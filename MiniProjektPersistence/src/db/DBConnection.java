@@ -1,5 +1,6 @@
 package db;
 
+//Klasse til at forbinde med databasen 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,6 +20,7 @@ public class DBConnection {
 	private static final String userName = "DMA-CSD-S243_10461262";
 	private static final String password = "Password1!";
 	
+	//Metode for at kunne forbinde medd databaseen
 	private DBConnection() {
 		String connectionString = String.format("jdbc:sqlserver://%s:%d;databaseName=%s;user=%s;password=%s;encrypt=false", 
 				serverAddress, serverPort, dbName, userName, password);
@@ -35,6 +37,7 @@ public class DBConnection {
 		}
 	}
 	
+	//Giveer en instance af databasen hvis der ikke er en
 	public static DBConnection getInstance() {
 		if(dbConnection == null) {
 			dbConnection = new DBConnection();
@@ -90,7 +93,7 @@ public class DBConnection {
 		}
 		return res;
 	}
-	
+	//alle sammen metoder man skal bruge til at forbinde til database
 	public int executeUpdate(String sql) throws SQLException {
 		System.out.println("DBConnection, Updating: " + sql);
 		int res = -1;
@@ -107,7 +110,7 @@ public class DBConnection {
 	public Connection getConnection() {
 		return connection;
 	}
-	
+	//Lukker forbindelsen til databasen
 	public void disconnect() {
 		try {
 			connection.close();
