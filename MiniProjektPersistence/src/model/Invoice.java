@@ -1,7 +1,11 @@
 package model;
 
+
+//Setters, getters og en constructor for Invoice
+
 import java.sql.Date;
 import java.util.ArrayList;
+//Pakke for Date attributten
 
 public class Invoice {
 

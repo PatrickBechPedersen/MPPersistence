@@ -1,5 +1,8 @@
 package model;
 
+//Setters, getters og en constructor for GunReplicaProduct som er en underklasse for Product
+
+
 public class GunReplicaProduct extends Product{
 
 	private String calibre;

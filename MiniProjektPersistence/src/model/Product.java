@@ -1,5 +1,8 @@
 package model;
 
+//Setters, getters og en constructor for Product
+
+
 public class Product {
 	
 	private int productId;

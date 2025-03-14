@@ -1,7 +1,11 @@
 package model;
 
+//Setters, getters og en constructor for SaleOrder
+
+
 import java.sql.Date;
 import java.util.ArrayList;
+//Pakke for Datee attribute
 
 public class SaleOrder {
 	
