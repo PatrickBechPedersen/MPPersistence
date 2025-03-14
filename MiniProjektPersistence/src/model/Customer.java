@@ -2,6 +2,7 @@ package model;
 
 public class Customer {
 	
+	private int id;
 	private String address;
 	private String zipcode;
 	private String city;
@@ -29,6 +30,10 @@ public class Customer {
 	public String getPhoneNo() {
 		return phoneNo;
 	}
+	
+	public int getId() {
+		return id;
+	}
 
 	public void setAddress(String address) {
 		this.address = address;
@@ -44,6 +49,10 @@ public class Customer {
 
 	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

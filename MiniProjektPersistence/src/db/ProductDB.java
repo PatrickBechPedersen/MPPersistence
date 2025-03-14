@@ -23,9 +23,9 @@ public class ProductDB implements ProductDBIF {
 	
 	
 	@Override
-	public Product findProductById(String productId) throws DataAccessException {
+	public Product findProductById(int productId) throws DataAccessException {
 		try {
-			findById.setString(1, productId);
+			findById.setInt(1, productId);
 			ResultSet rs = findById.executeQuery();
 			Product p = null;
 			if(rs.next()) {

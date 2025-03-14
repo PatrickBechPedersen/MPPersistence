@@ -17,11 +17,14 @@ public class OrderDB implements OrderDBIF {
 	private PreparedStatement confirmOrder;
 	private static final String addProductQ = "insert into orderLineSaleOrder productId, orderId";
 	private PreparedStatement addProduct;
+	private static final String addCustomerQ = "insert into customerSaleOrders orderId, customerId";
+	private PreparedStatement addCustomer;
 	
 	public OrderDB() throws DataAccessException{
 		try {
 		confirmOrder = DBConnection.getInstance().getConnection().prepareStatement(confirmOrderQ);
 		addProduct = DBConnection.getInstance().getConnection().prepareStatement(addProductQ);
+		addCustomer = DBConnection.getInstance().getConnection().prepareStatement(addCustomerQ);
 		}
 		catch(SQLException e) {
 			throw new DataAccessException(e, "Could not prepared statements");
@@ -30,7 +33,6 @@ public class OrderDB implements OrderDBIF {
 
 	@Override
 	public void confirmOrder(SaleOrder order) throws DataAccessException {
-		addProducts(order);
 		order.calculateTotal();
 		final double subtotal = order.getTotal();
 		final String deliveryStatus = order.getDeliveryStatus();
@@ -46,7 +48,7 @@ public class OrderDB implements OrderDBIF {
 		}
 	}
 	
-	private void addProducts(SaleOrder order) throws DataAccessException {
+	public void addProducts(SaleOrder order) throws DataAccessException {
 		try {
 		ArrayList<OrderLine>orderLines = order.getOrderLines();
 		final int orderId = order.getOrderId();
@@ -58,10 +60,26 @@ public class OrderDB implements OrderDBIF {
 			addProduct.execute();
 			}
 		}catch(SQLException e) {
-			throw new DataAccessException(e, "coul not addProducts");
+			throw new DataAccessException(e, "coul not add Products");
 		}
 		
 	}
+
+	@Override
+	public void addCustomer(SaleOrder order, Customer customer) throws DataAccessException {
+		int orderId = order.getOrderId();
+		int customerId = customer.getId();
+		try {
+			addCustomer.setInt(orderId, customerId);
+			addCustomer.execute();
+		}
+		catch(SQLException e) {
+			throw new DataAccessException(e, "Could not add Customer");
+		}
+		
+	}
+	
+	
 		
 
 }

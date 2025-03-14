@@ -43,6 +43,7 @@ public class CustomerDB implements CustomerDBIF {
 				rs.getString("city"),
 				rs.getString("phoneNo")
 				);
+		        c.setId(rs.getInt("id"));
 		return c;
 	}
 	

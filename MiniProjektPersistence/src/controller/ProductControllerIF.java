@@ -5,6 +5,6 @@ import model.Product;
 
 public interface ProductControllerIF {
 	
-	Product findProductById(String id) throws DataAccessException;
+	Product findProductById(int id) throws DataAccessException;
 
 }

@@ -4,6 +4,6 @@ import model.Product;
 
 public interface ProductDBIF {
 	
-	Product findProductById(String productId) throws DataAccessException;
+	Product findProductById(int productId) throws DataAccessException;
 
 }
